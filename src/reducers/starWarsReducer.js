@@ -2,11 +2,10 @@ import { FETCHING, SUCCESS, FAILURE } from "../actions";
 
 const initialState = {
   characters: [],
-  // Array characters, Boolean fetching, null error.
   fetching: false,
-  error: null
-
+  error: ''
 };
+
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
     // Fill me in with the important reducers
@@ -17,7 +16,7 @@ export const charsReducer = (state = initialState, action) => {
     case SUCCESS:
       return { ...state, characters: action.payload, fetching: false, error: "" }
     case FAILURE:
-      return { ...state, characters: [], fetching: false, error: 'Mayday'}
+      return { ...state, fetching: false, error: 'Mayday'}
     default:
       return state;
   }

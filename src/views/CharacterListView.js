@@ -21,13 +21,13 @@ class CharacterListView extends React.Component {
       return (
         <div>Loading....</div>
       )
-    }
+    } 
       return (
         <div className="CharactersList_wrapper">
+          {console.log(this.props)}
           <CharacterList characters={this.props.characters} />
         </div>
       );
-    
   }
 }
 
@@ -35,14 +35,9 @@ class CharacterListView extends React.Component {
 // the characters and the fetching boolean
 const mapStateToProps = state => {
   return {
-    characters: state.characters,
-    fetching: state.fetching
+    characters: state.charsReducer.characters,
+    fetching: state.charsReducer.fetching
   }
 }
 
-export default connect(
-  mapStateToProps,
-  {
-    fetchCharacters
-  }
-)(CharacterListView);
+export default connect(mapStateToProps, { fetchCharacters })(CharacterListView);
